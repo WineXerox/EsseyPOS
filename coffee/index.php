@@ -1,0 +1,9 @@
+<?php 
+include('header.php');
+include('menu_top_index.php');
+include('banner.php');
+include('promotion.php');
+include('beverage.php');
+include('food.php');
+include('footer.php');
+?>

@@ -1,0 +1,4 @@
+#รหัสผ่าน
+admin user&pass = admin, member user&pass = member, พนง. user&pass= staff
+
+
