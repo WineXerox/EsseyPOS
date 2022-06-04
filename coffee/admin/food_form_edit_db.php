@@ -11,6 +11,7 @@ include('../condb.php');
 	$p_img2 = mysqli_real_escape_string($con, $_POST['p_img2']);
 	$p_flavour = mysqli_real_escape_string($con, $_POST['p_flavour']);
 	$op_price = mysqli_real_escape_string($con, $_POST['op_price']);
+	$p_stotal = mysqli_real_escape_string($con, $_POST['p_stotal']);
 
     $date1 = date("Ymd_His");
 	$numrand = (mt_rand());
@@ -35,6 +36,7 @@ include('../condb.php');
 	p_unit='$p_unit',
 	p_img='$newname',
 	p_flavour='$p_flavour'
+	p_stotal='$p_stotal'
 	WHERE p_id=$p_id
 	";
 

@@ -56,26 +56,25 @@ $result = mysqli_query($con, $query);
         บาท  
     </div>
   </div> 
-<!--     <div class="form-group">
-    <div class="col-sm-2 control-label">
-      ส่วนลดสมาชิก :
-    </div>
-    <div class="col-sm-2">
-      <input type="number" name="p_discount" required class="form-control" placeholder="%">
-    </div>
-    <div class="col-sm-1">
-        เปอร์เซ็น
-    </div>
-  </div> -->
-<!-- 
-    <div class="form-group">
+  <!-- <div class="form-group">
     <div class="col-sm-2 control-label">
       จำนวนสินค้า :
     </div>
     <div class="col-sm-2">
-      <input type="number" name="p_qty" required class="form-control">
+      <input type="number" name="p_discount" required class="form-control" placeholder="">
+    </div>
+    <div class="col-sm-1">
+        ชิ้น
     </div>
   </div> -->
+  <div class="form-group">
+    <div class="col-sm-2 control-label">
+      จำนวนสินค้า :
+    </div>
+    <div class="col-sm-2">
+      <input type="number" name="p_stotal" required class="form-control">
+    </div>
+  </div>
   <div class="form-group">
     <div class="col-sm-2 control-label">
       หน่วยนับสินค้า :

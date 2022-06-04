@@ -8,7 +8,7 @@ include('../condb.php');
 	$p_detail = mysqli_real_escape_string($con, $_POST["p_detail"]);
 	$op_price = mysqli_real_escape_string($con, $_POST["op_price"]);
 	$p_unit = mysqli_real_escape_string($con, $_POST["p_unit"]);
-	//$p_qty = $_POST["p_qty"];
+	$p_stotal = mysqli_real_escape_string($con, $_POST["p_stotal"]);
 	$p_flavour = mysqli_real_escape_string($con, $_POST['p_flavour']);
 	//$p_discount = $_POST['p_discount'];
 	
@@ -37,7 +37,8 @@ include('../condb.php');
 	p_img,
 	p_flavour,
 	p_discount,
-	p_qty
+	p_qty,
+	p_stotal
 	)
 	VALUES
 	(
@@ -49,12 +50,11 @@ include('../condb.php');
 	'$newname',
 	'$p_flavour',
 	0,
+	0,
 	0
 	)";
 
 	$result = mysqli_query($con, $sql);
-
-   
 
     $sql2 = "SELECT MAX(p_id) as pid  FROM tbl_product
 	WHERE ref_t_id=$ref_t_id";
@@ -62,8 +62,8 @@ include('../condb.php');
 	$row = mysqli_fetch_array($query2);
 
 	$ref_p_id = $row['pid'];
- 
-  	$sql3 = "INSERT INTO tbl_product_option
+
+	$sql3 = "INSERT INTO tbl_product_option
 	(
 	ref_p_id,
 	op_name,

@@ -53,6 +53,10 @@
 											include('r_stock.php');
 										}elseif ($act=='stock2') {
 											include('r_stock2.php');
+										}elseif ($act=='r_d2') {
+											include('r_d2.php');
+										}elseif ($act=='r_d3') {
+											include('r_d3.php');
 										}else{
 											include('r_d.php');
 										}

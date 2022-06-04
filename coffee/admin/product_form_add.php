@@ -67,15 +67,14 @@ $result = mysqli_query($con, $query);
         เปอร์เซ็น
     </div>
   </div> -->
-<!-- 
-    <div class="form-group">
+  <div class="form-group">
     <div class="col-sm-2 control-label">
       จำนวนสินค้า :
     </div>
     <div class="col-sm-2">
-      <input type="number" name="p_qty" required class="form-control">
+      <input type="number" name="p_stotal" required class="form-control">
     </div>
-  </div> -->
+  </div>
   <div class="form-group">
     <div class="col-sm-2 control-label">
       หน่วยนับสินค้า :

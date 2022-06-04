@@ -14,8 +14,15 @@
 ?>
 <div class="col-xs-3">
 	<h5><b>
+	<?php $total = ""; if ( $rowfood['p_stotal']*10/100 +   $rowfood['p_qty'] >=  $rowfood['p_stotal']*10/100 +  $rowfood['p_stotal']) { 
+						$total = "สินค้าหมด";
+			} else if ( $rowfood['p_stotal']*10/100 +   $rowfood['p_qty'] >=  $rowfood['p_stotal']) { 
+						$total = "สินค้าใกล้หมด";}
+			echo $rowfood['p_name'];
+			echo ($total != "" ? '(<font color="red"> ' .$total. ' </font>)': null);
+	?>
 	<?php 
-	echo $rowfood['p_name'];
+	
 	$p_promotion = $rowfood['p_promotion'];
         if($p_promotion==1){
 

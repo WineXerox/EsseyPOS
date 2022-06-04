@@ -1,36 +1,27 @@
-<hr>
-<p>
-    <a href="index.php?act=r_d3" class="btn btn-info"> รายงานยอดขายรายวัน </a>
-    <a href="index.php?act=r_d2" class="btn btn-info"> รายงานยอดขายรายเดือน </a>
-    <a href="index.php" class="btn btn-info"> รายงานยอดขายรายปี </a>
-    <a href="index.php?act=stock1" class="btn btn-info"> รายงานสต๊อก-เครื่องดื่ม </a>
-    <a href="index.php?act=stock2" class="btn btn-info"> รายงานสต๊อก-เมนูอร่อย </a>
-</p>
-
 <html>
 <head>
     <meta charset="utf-8">
 </head>
 <?php
-//sum order by year
-$queryy = "
-SELECT SUM(order_total) AS stotaly, 
-DATE_FORMAT(order_date_rev, '%Y') AS order_date_rev
-FROM tbl_orders 
-GROUP BY DATE_FORMAT(order_date_rev, '%Y%')";
-$result = mysqli_query($con, $queryy);
-$resultchart = mysqli_query($con, $queryy);  
+//sum order by month
+$querym = "
+SELECT order_total, SUM(order_total) AS stotalm,
+DATE_FORMAT(order_date_rev, '%m') AS order_date_rev
+FROM tbl_orders
+GROUP BY DATE_FORMAT(order_date_rev, '%m%')";
+$result = mysqli_query($con, $querym);
+$resultchart = mysqli_query($con, $querym);  
 
 //for chart
 $order_date_rev = array();
-$stotaly = array();
+$stotalm = array();
 
 while($rs = mysqli_fetch_array($resultchart)){ 
 $order_date_rev[] = "\"".$rs['order_date_rev']."\""; 
-$stotaly[] = "\"".$rs['stotaly']."\""; 
+$stotalm[] = "\"".$rs['stotalm']."\""; 
 }
 $order_date_rev = implode(",", $order_date_rev); 
-$stotaly = implode(",", $stotaly); 
+$stotalm = implode(",", $stotalm); 
 
 ?>
 <?php mysqli_close($con);?>
@@ -49,8 +40,8 @@ var myChart = new Chart(ctx, {
     
         ],
         datasets: [{
-            label: 'รายงานภาพรวม แยกตามปี (บาท)',
-            data: [<?php echo $stotaly;?>
+            label: 'รายงานภาพรวม แยกตามเดือน (บาท)',
+            data: [<?php echo $stotalm;?>
             ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -82,5 +73,6 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>  
-</p> 
+</p>
+
 </html>

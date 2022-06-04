@@ -28,4 +28,3 @@ include('../condb.php');
 	Header("Location: ../logout.php");
 }
 ?>
- 

@@ -10,13 +10,19 @@
 ?>
 <div class="col-xs-4">
 	<h5><b>
+		<?php $total = ""; if ($rowp['p_stotal']*10/100 +  $rowp['p_qty'] >= $rowp['p_stotal']*10/100 + $rowp['p_stotal']) { 
+						$total = "สินค้าหมด";
+			} else if ($rowp['p_stotal']*10/100 +  $rowp['p_qty'] >= $rowp['p_stotal']) { 
+						$total = "สินค้าใกล้หมด";}
+			echo $rowp['p_name'];
+			echo ($total != "" ? '(<font color="red"> ' .$total. ' </font>)': null);
+		?>
 		<?php 
-		echo $rowp['p_name'];
 		$p_promotion = $rowp['p_promotion'];
         if($p_promotion==1){
-
-	echo '<font color="red"> (ลด ' .$rowp['p_discount']. '%) </font>';
-	} ?>
+		echo '<font color="red"> (ลด ' .$rowp['p_discount']. '%) </font>';
+		} 	
+		?>
 	</b></h5>
 	<p class="price float-right">
 		

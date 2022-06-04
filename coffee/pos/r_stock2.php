@@ -1,13 +1,16 @@
 <hr>
 <p>
-    <a href="index.php" class="btn btn-info"> รายงานยอดขาย </a>
+    <a href="index.php?act=r_d3" class="btn btn-info"> รายงานยอดขายรายวัน </a>
+    <a href="index.php?act=r_d2" class="btn btn-info"> รายงานยอดขายรายเดือน </a>
+    <a href="index.php" class="btn btn-info"> รายงานยอดขายรายปี </a>
     <a href="index.php?act=stock1" class="btn btn-info"> รายงานสต๊อก-เครื่องดื่ม </a>
     <a href="index.php?act=stock2" class="btn btn-info"> รายงานสต๊อก-เมนูอร่อย </a>
 </p>
+
 <?php
 $querys = "
 SELECT  p.p_id, p.p_name,p.p_price, SUM(o.d_qty) as qtotal, p.p_img, 
-p.p_flavour, p.p_unit
+p.p_flavour, p.p_unit, p.p_stotal
 FROM tbl_order_detail as o
 INNER JOIN tbl_product_option  as b ON o.ref_op_id=b.op_id
 INNER JOIN tbl_product  as p ON b.ref_p_id=p.p_id
@@ -21,8 +24,9 @@ echo ' <table id="example10" class="table table-bordered table-striped">';
     echo "<tr class='danger'>
       <th width='3%'>No.</th>
       <th width='7%'>รูป</th>
-      <th width='30%'>ชื่อสินค้า</th>
+      <th width='20%'>ชื่อสินค้า</th>
       <th width='10%'><center>จำนวนที่ขายได้</center></th>
+      <th width='10%'><center>ยอดสต็อกสินค้า</center></th>
     </tr>";
   echo "</thead>";
   while($row = mysqli_fetch_array($results)) {
@@ -31,7 +35,8 @@ echo ' <table id="example10" class="table table-bordered table-striped">';
     echo "<td>"."<img src='../p_img/".$row['p_img']."' width='100%'>"."</td>";
     echo "<td>";
     echo "<b>" .$row["p_name"]."</b>"."<br>".$row["p_flavour"]."</td> ";
-    echo "<td align='center'>" .$row["qtotal"] ."  " .$row["p_unit"] ."</td>"; 
+    echo "<td align='center'>" .$row["qtotal"] ."  " .$row["p_unit"] ."</td>";
+    echo "<td align='center'>" .$row["qtotal"] ."  " .$row["p_unit"] . " / ".$row["p_stotal"]."</td>";
   echo "</tr>";
   }
 echo "</table>";

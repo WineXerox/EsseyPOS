@@ -41,6 +41,7 @@ $rowb = mysqli_fetch_array($resultb);
 						<td align="right">ราคา</td>
 						<td align="center">จำนวน</td>
 						<td align="right">รวม/รายการ</td>
+						<td align="right">  เพิ่มเติม   </td>
 					</tr>
 					<?php
 					$queryb = "
@@ -60,10 +61,10 @@ $rowb = mysqli_fetch_array($resultb);
 						}else{
 						$mprice = $row['op_price'];
 						}
-				echo "<tr>";
-					echo "<td align='center'>". $i += 1 ."</td>";
+						echo "<tr>";
+						echo "<td align='center'>". $i += 1 ."</td>";
 					
-					echo "<td>"." ";
+						echo "<td>"." ";
 						if($row['ref_t_id']==1){
 						echo $row["p_name"];
 						echo " ".$row["op_name"] ." ";
@@ -74,9 +75,10 @@ $rowb = mysqli_fetch_array($resultb);
 						echo "<td align='right'>" .number_format($mprice,2) ."</td>";
 						echo "<td align='center'>".$row['d_qty']."</td>";
 						echo "<td align='right'>".number_format($row['d_price_total'],2)."</td>";
+						echo "<td align='right'>"."<b>".$row['order_level']."</b>"."</td>";
 						echo "</tr>";
 						$total +=$row['d_price_total'];
-								}
+					}
 						echo "<tr bgcolor='#e0d0d0'>";
 						echo "<td  align='right' colspan='4'><b>รวม</b></td>";
 						echo "<td align='right'>"."<b>".number_format($total,2)."</b>"."</td>";

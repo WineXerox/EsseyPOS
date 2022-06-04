@@ -3,7 +3,7 @@
 		<div class="row d-flex justify-content-center">
 			<div class="menu-content pb-60 col-lg-10">
 				<div class="title text-center">
-					<h1 class="mb-10">แจ้งเวลาที่มารับสินค้า</h1>
+					<h1 class="mb-10">รายการสั่งซื้อสินค้า</h1>
 				</div>
 			</div>
 		</div>
@@ -16,7 +16,7 @@
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_date"  readonly value="<?php echo date('d-m-Y');?>">
 						</div>
-						<div class="col-md-1"> เวลา </div>
+						<!-- <div class="col-md-1"> เวลา </div>
 						<div class="col-md-3">
 							<select name="o_time" class="form-control" required>
 								<option value="">-เลือกเวลา-</option>
@@ -33,7 +33,8 @@
 								<option value="19.00">- 19.00</option>
 							</select>
 						</div>
-						<div class="col-md-1"> นาฬิกา </div>
+						<div class="col-md-1"> นาฬิกา </div> -->
+						<div class="col-md-5"></div>
 						<div class="col-md-1">
 						<button type="submit" class="btn btn-primary" onclick="return confirm('ยืนยัน');">ยืนยันการสั่งซื้อ</button></div>
 					</div>
@@ -59,47 +60,45 @@
 							$total=0;
 							foreach($_SESSION['shopping_cart'] as $op_id=>$p_qty)
 							{
-						$sql = "
-						SELECT o.*,p.p_img,p.p_name,p.p_promotion,p.p_discount,p.ref_t_id
-						FROM tbl_product_option as o
-						INNER JOIN  tbl_product as p ON o.ref_p_id=p.p_id
-						WHERE o.op_id=$op_id";
-						$query = mysqli_query($con, $sql);
-								$row	= mysqli_fetch_array($query);
-						$p_promotion = $row['p_promotion'];
-						if($p_promotion==1){
-								$disc =	$row['op_price'] * $row['p_discount']/100;
-						$mprice = $row['op_price']-$disc;
-						}else{
-						$mprice = $row['op_price'];
-						}
-						
-						
-						
-						$sum = $mprice * $p_qty;
-								$total	+= $sum;
-						echo "<tr>";
+							$sql = "
+							SELECT o.*,p.p_img,p.p_name,p.p_promotion,p.p_discount,p.ref_t_id
+							FROM tbl_product_option as o
+							INNER JOIN  tbl_product as p ON o.ref_p_id=p.p_id
+							WHERE o.op_id=$op_id";
+							$query = mysqli_query($con, $sql);
+									$row	= mysqli_fetch_array($query);
+							$p_promotion = $row['p_promotion'];
+							if($p_promotion==1){
+									$disc =	$row['op_price'] * $row['p_discount']/100;
+							$mprice = $row['op_price']-$disc;
+							}else{
+							$mprice = $row['op_price'];
+							}
+							
+							$sum = $mprice * $p_qty;
+									$total	+= $sum;
+							echo "<tr>";
 							echo "<td align='center'>";
 							echo  @$i += 1;
 							echo "</td>";
 							echo "<td width='100'>"."<img src='p_img/$row[p_img]'  width='100%'/>"."</td>";
 							echo "<td>";
-									if($row['ref_t_id']==1){
-										echo $row["p_name"];
-										echo " ".$row["op_name"] ." ";
-										}else{
-										echo $row["p_name"];
+										if($row['ref_t_id']==1){
+											echo $row["p_name"];
+											echo " ".$row["op_name"] ." ";
+											}else{
+											echo $row["p_name"];
 										}
 							echo "</td>";
 							echo "<td align='right'>" .number_format($mprice,2) ."</td>";
 							echo "<td align='right'>$p_qty</td>";
 							echo "<td align='right'>".number_format($sum,2)."</td>";
-						echo "</tr>";
+							echo "</tr>";
 							}
 							echo "<tr bgcolor='#e0d0d0'>";
-														echo "<td  align='right' colspan='5'><b>รวม</b></td>";
-														echo "<td align='right'>"."<b>".number_format($total,2)."</b>"."</td>";
-						echo "</tr>";
+							echo "<td  align='right' colspan='5'><b>รวม</b></td>";
+							echo "<td align='right'>"."<b>".number_format($total,2)."</b>"."</td>";
+							echo "</tr>";
 						?>
 					</table>
 					<input type="hidden" name="ptotal" value="<?php echo $total;?>">

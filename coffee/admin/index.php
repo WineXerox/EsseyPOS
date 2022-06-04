@@ -27,7 +27,9 @@
 									<hr>
 									<p id="hdd">
 										<a href="index.php?act=sum" class="btn btn-success"> ยอดขายตามวันที่ </a>
-										<a href="index.php" class="btn btn-info"> รายงานยอดขาย </a>
+										<a href="index.php?act=r_d3" class="btn btn-info"> รายงานยอดขายรายวัน </a>
+    									<a href="index.php?act=r_d2" class="btn btn-info"> รายงานยอดขายรายเดือน </a>
+										<a href="index.php?act=r_d" class="btn btn-info"> รายงานยอดขายรายปี </a>
 										<a href="index.php?act=stock1" class="btn btn-info"> รายงานสต๊อก-เครื่องดื่ม </a>
 										<a href="index.php?act=stock2" class="btn btn-info"> รายงานสต๊อก-เมนูอร่อย </a>
 										<a href="index.php?act=top10" class="btn btn-danger"> รายงาน TOP 10</a>
@@ -56,8 +58,14 @@
 										include('r_stock_sum.php');
 									}elseif ($act=='sum2') {
 										include('r_stock_sum_d.php');
-									}else{
+									}elseif ($act=='r_d') {
 										include('r_d.php');
+									}elseif ($act=='r_d2') {
+										include('r_d2.php');
+									}elseif ($act=='r_d3') {
+										include('r_d3.php');
+									}else{
+										include('r_stock_sum.php');
 									}
 									?>
 								</div>

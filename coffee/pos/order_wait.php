@@ -50,9 +50,8 @@ echo ' <table id="example1" class="table table-bordered table-striped table-hove
     echo "<td align='center' class='danger'>" 
     .date('d/m/Y',strtotime($row["order_date_rev"]))
     ." "
-    ." เวลา "
-    .$row['order_time_rev']
-    ." น. "
+    // ." เวลา "
+    // .$row['order_time_rev']
     . "</td> ";
     echo "<td align='center'><a href='index.php?act=bill2&order_id=$row[0]&bill=detail' class='btn btn-info btn-xs' target='_blank'>ชำระเงิน</a></td> ";
     

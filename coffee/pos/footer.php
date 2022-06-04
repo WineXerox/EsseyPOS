@@ -4,7 +4,6 @@
     <b>Version</b> 1.0
   </div>
   <strong> My coffee  &copy;  2022  
-    <!-- <a href="https://devbanban.com/">devbanban.com</a> -->
   </strong> 
 </footer>
 <!-- ./wrapper -->

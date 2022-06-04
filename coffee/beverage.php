@@ -20,13 +20,15 @@
 				<div class="single-menu">
 					<div class="title-div justify-content-between d-flex">
 						<a href="detail.php?p_id=<?php echo $rowp['p_id'];?>" target="_blank">
-							<h6><?php echo $rowp['p_name'];?></h6>
+							<h6><?php echo $rowp['p_name'];?>
+							<?php $total = ""; if ($rowp['p_stotal']*10/100 +  $rowp['p_qty'] >= $rowp['p_stotal']*10/100 + $rowp['p_stotal']) { 
+									$total = "สินค้าหมด";
+							} else if ($rowp['p_stotal']*10/100 +  $rowp['p_qty'] >= $rowp['p_stotal']) { 
+									$total = "สินค้าใกล้หมด";}
+							?>
+							<font color="red"><?php echo $total; ?></font>
+							</h6>
 						</a>
-						<!-- <p class="price float-right">
-							ร้อน
-							เย็น
-							ปั่น
-						</p> -->
 					</div>
 					<p>
 						<center>

@@ -59,7 +59,7 @@ $row = mysqli_fetch_array($result);
         บาท
       </div>
     </div> -->
-<!--     <div class="form-group">
+    <!-- <div class="form-group">
       <div class="col-sm-2 control-label">
         ส่วนลดสมาชิก :
       </div>
@@ -69,15 +69,15 @@ $row = mysqli_fetch_array($result);
       <div class="col-sm-1">
         เปอร์เซ็น
       </div>
-    </div>
+    </div> -->
     <div class="form-group">
       <div class="col-sm-2 control-label">
         จำนวนสินค้า :
       </div>
       <div class="col-sm-2">
-        <input type="number" name="p_qty" required class="form-control" value="<?php echo $row['p_qty'];?>">
+        <input type="number" name="p_stotal" required class="form-control" value="<?php echo $row['p_stotal'];?>">
       </div>
-    </div> -->
+    </div>
     <div class="form-group">
       <div class="col-sm-2 control-label">
         หน่วยนับสินค้า :

@@ -26,6 +26,7 @@
 	$order_total = $_POST["ptotal"];
 	$order_date = date("Y-m-d H:i:s");
 	$ref_s_id = 3;
+	$order_level = $_POST['order_level'];
 	$staff_id = $_POST['staff_id'];
 
 	
@@ -39,7 +40,8 @@
 	'$order_date_rev',
 	'$order_time_rev',
 	'$order_total',
-	'$order_date'
+	'$order_date',
+	'$order_level'
 	)";
 	
 	$query1	= mysqli_query($con, $sqlo);

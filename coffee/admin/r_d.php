@@ -1,104 +1,77 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
 <?php
-$queryd = "
-SELECT SUM(order_total) AS stotal,
-DATE_FORMAT(order_date, '%d-%m-%Y') AS order_date
-FROM tbl_orders
-GROUP BY DATE_FORMAT(order_date, '%d%')";
-$resultd = mysqli_query($con, $queryd);
-
-$querym = "
-SELECT SUM(order_total) AS stotalm,
-DATE_FORMAT(order_date, '%M-%Y') AS order_date
-FROM tbl_orders
-GROUP BY DATE_FORMAT(order_date, '%m%')";
-$resultm = mysqli_query($con, $querym);
-
-
+//sum order by year
 $queryy = "
-SELECT SUM(order_total) AS stotaly,
-DATE_FORMAT(order_date, '%d-%m-%Y') AS order_date
-FROM tbl_orders
-GROUP BY DATE_FORMAT(order_date, '%Y%')";
-$resulty = mysqli_query($con, $queryy);
+SELECT SUM(order_total) AS stotaly, 
+DATE_FORMAT(order_date_rev, '%Y') AS order_date_rev
+FROM tbl_orders 
+GROUP BY DATE_FORMAT(order_date_rev, '%Y%')";
+$result = mysqli_query($con, $queryy);
+$resultchart = mysqli_query($con, $queryy);  
+
+//for chart
+$order_date_rev = array();
+$stotaly = array();
+
+while($rs = mysqli_fetch_array($resultchart)){ 
+$order_date_rev[] = "\"".$rs['order_date_rev']."\""; 
+$stotaly[] = "\"".$rs['stotaly']."\""; 
+}
+$order_date_rev = implode(",", $order_date_rev); 
+$stotaly = implode(",", $stotaly); 
+
 ?>
-<h4>รายงานแยกตามวัน</h4>
-<table width="300" border="1" cellpadding="0"  cellspacing="0">
-    <thead>
-        <tr>
-            <th width="40%">ว/ด/ป</th>
-            <th width="60%">ยอดขาย</th>
-        </tr>
-    </thead>
-    <?php while($row = mysqli_fetch_array($resultd)) { ?>
-    <tr>
-        <td align="center">
-            <?php echo date('d-M-Y',strtotime($row['order_date']));?>
-        </td>
-        <td align="right"><?php echo number_format($row['stotal'],2);?></td>
-    </tr>
-    
-    <?php
-    $atd += $row['stotal'];
-    }
-    ?>
-    <tr>
-        <td align="center">รวม</td>
-        <td align="right" bgcolor="yellow"><?php echo number_format($atd,2);?></td>
-    </tr>
-</table>
+<?php mysqli_close($con);?>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <hr>
+<p align="center">
 
-<h4>รายงานแยกตามเดือน</h4>
-<table width="300" border="1" cellpadding="0"  cellspacing="0">
-    <thead>
-        <tr>
-            <th width="40%">เดือน</th>
-            <th width="60%">ยอดขาย</th>
-        </tr>
-    </thead>
-    <?php while($row = mysqli_fetch_array($resultm)) { ?>
-    <tr>
-        <td align="center">
-            <?php echo date('M-Y',strtotime($row['order_date']));?>
-        </td>
-        <td align="right"><?php echo number_format($row['stotalm'],2);?></td>
-    </tr>
+<canvas id="myChart" width="800px" height="300px"></canvas>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [<?php echo $order_date_rev;?>
     
-    <?php
-    $atm += $row['stotalm'];
+        ],
+        datasets: [{
+            label: 'รายงานภาพรวม แยกตามปี (บาท)',
+            data: [<?php echo $stotaly;?>
+            ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
     }
-    ?>
-    <tr>
-        <td align="center">รวม</td>
-        <td align="right" bgcolor="yellow"><?php echo number_format($atm,2);?></td>
-    </tr>
-</table>
-
-<hr>
-
-<h4>รายงานแยกตามปี</h4>
-<table width="300" border="1" cellpadding="0"  cellspacing="0">
-    <thead>
-        <tr>
-            <th width="40%">ปี</th>
-            <th width="60%">ยอดขาย</th>
-        </tr>
-    </thead>
-    <?php while($row = mysqli_fetch_array($resulty)) { ?>
-    <tr>
-        <td align="center">
-            <?php echo date('Y',strtotime($row['order_date']));?>
-        </td>
-        <td align="right"><?php echo number_format($row['stotaly'],2);?></td>
-    </tr>
-    
-    <?php
-    $aty += $row['stotaly'];
-    }
-    ?>
-    <tr>
-        <td align="center">รวม</td>
-        <td align="right" bgcolor="yellow"><?php echo number_format($aty,2);?></td>
-    </tr>
-</table>
+});
+</script>  
+</p> 
+</html>

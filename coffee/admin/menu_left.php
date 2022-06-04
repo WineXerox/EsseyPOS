@@ -60,8 +60,7 @@
           <i class="fa fa-edit"></i>
           <span> จัดการสินค้าโปรโมชั่น</span>
         </a>
-      </li>
-      
+      </li>      
       <li>
         <a href="status.php">
           <i class="fa fa-edit"></i>

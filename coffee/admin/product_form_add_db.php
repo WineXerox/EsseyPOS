@@ -9,7 +9,7 @@ include('../condb.php');
 	$p_detail = mysqli_real_escape_string($con, $_POST["p_detail"]);
 	//$p_price = $_POST["p_price"];
 	$p_unit = mysqli_real_escape_string($con, $_POST["p_unit"]);
-	//$p_qty = $_POST["p_qty"];
+	$p_stotal = mysqli_real_escape_string($con, $_POST["p_stotal"]);
 	$p_flavour = mysqli_real_escape_string($con, $_POST['p_flavour']);
 	//$p_discount = $_POST['p_discount'];
 	
@@ -38,7 +38,8 @@ include('../condb.php');
 	p_img,
 	p_flavour,
 	p_discount,
-	p_qty
+	p_qty,
+	p_stotal
 	)
 	VALUES
 	(
@@ -49,6 +50,7 @@ include('../condb.php');
 	'$p_unit',
 	'$newname',
 	'$p_flavour',
+	0,
 	0,
 	0
 	)";
