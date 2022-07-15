@@ -52,7 +52,7 @@
       <li>
         <a href="food.php">
           <i class="fa fa-edit"></i>
-          <span> จัดการเมนูอาหาร</span>
+          <span> จัดการเมนูอร่อย</span>
         </a>
       </li>
       <li>

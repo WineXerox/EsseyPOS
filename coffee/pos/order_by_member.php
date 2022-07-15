@@ -1,3 +1,11 @@
+<p>
+    <a href="index.php?act=r_d3" class="btn btn-info"> รายงานยอดขายรายวัน </a>
+    <a href="index.php?act=r_d2" class="btn btn-info"> รายงานยอดขายรายเดือน </a>
+    <a href="index.php" class="btn btn-info"> รายงานยอดขายรายปี </a>
+    <a href="index.php?act=stock1" class="btn btn-info"> รายงานสต๊อก-เครื่องดื่ม </a>
+    <a href="index.php?act=stock2" class="btn btn-info"> รายงานสต๊อก-เมนูอร่อย </a>
+</p>
+
 <?php
 $query = "
 SELECT 

@@ -27,7 +27,7 @@
 				    <li class="menu-active"><a href="index.php">หน้าหลัก</a></li>
 				    <li><a href="cart.php">ตะกร้าของฉัน</a></li>
 				    <li><a href="index.php#coffee">เครื่องดื่ม</a></li>
-				    <li><a href="index.php#food">อาหารอร่อย</a></li>
+				    <li><a href="index.php#food">เมนูอร่อย</a></li>
 				    <li><a href="register.php">สมัครสมาชิก</a></li>
 				    <?php 
 				        if(isset($_SESSION['m_id'])){ ?>

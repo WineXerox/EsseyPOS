@@ -34,15 +34,15 @@ $rowb = mysqli_fetch_array($resultb);
 							<input type="hidden" name="staff_id" value="<?php echo $m_id;?>">
 						<button  class="btn btn-primary" onclick="return confirm('ยืนยัน');">รับ Order </button></div>
 					</div>
-					<div class="form-group row">
+					 <div class="form-group row">
 						<div class="col-md-2 control-label"> ว/ด/ป ที่มารับ </div>
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_date"  value="<?php echo date('d/m/Y',strtotime($rowb['order_date_rev']));?>" readonly>
 						</div>
-						<div class="col-md-1"> เวลา </div>
+						<!-- <div class="col-md-1"> เวลา </div>
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_time" value="<?php echo $rowb['order_time_rev'];?>" readonly>
-						</div>
+						</div> -->
 					</div>
 					
 					<div class="form-group row">

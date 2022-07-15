@@ -18,7 +18,7 @@
             <div class="box">
               <div class="box-header">
                 <h3 class="box-title">รายการสินค้าโปรโมชั่น 
-                  <!-- <a href="product_pro.php?act=add" class="btn-info btn-sm">+เพิ่มข้อมูล</a>  --></h3>
+                  <!-- <a href="product_pro.php?act=add" class="btn-info btn-sm">+เพิ่มข้อมูล</a> </h3> -->
               </div>
               
               <div class="box-body">
@@ -26,11 +26,11 @@
                   <?php
                   $act = (isset($_GET['act']) ? $_GET['act'] : '');
                   if($act == 'add'){
-                  include('product_pro_form_add.php');
+                  include('product_form_add.php');
                   }elseif ($act == 'edit') {
-                  include('product_pro_form_edit.php');
+                  include('product_form_edit.php');
                   }elseif($act=='dt'){
-                  include('product_pro_detail.php');
+                  include('product_detail.php');
                   }else {
                   include('product_pro_list.php');
                   }

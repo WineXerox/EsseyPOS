@@ -56,7 +56,7 @@ $result = mysqli_query($con, $query);
         บาท  
     </div>
   </div> -->
-<!--     <div class="form-group">
+    <div class="form-group">
     <div class="col-sm-2 control-label">
       ส่วนลดสมาชิก :
     </div>
@@ -66,7 +66,7 @@ $result = mysqli_query($con, $query);
     <div class="col-sm-1">
         เปอร์เซ็น
     </div>
-  </div> -->
+  </div>
   <div class="form-group">
     <div class="col-sm-2 control-label">
       จำนวนสินค้า :

@@ -16,8 +16,8 @@
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_date"  readonly value="<?php echo date('d-m-Y');?>">
 						</div>
-						<!-- <div class="col-md-1"> เวลา </div>
-						<div class="col-md-3">
+						<div class="col-md-1"> เวลา </div>
+						<div class="col-md-2">
 							<select name="o_time" class="form-control" required>
 								<option value="">-เลือกเวลา-</option>
 								<option value="9.00">- 9.00</option>
@@ -33,8 +33,8 @@
 								<option value="19.00">- 19.00</option>
 							</select>
 						</div>
-						<div class="col-md-1"> นาฬิกา </div> -->
-						<div class="col-md-5"></div>
+						<div class="col-md-1"> นาฬิกา </div>
+						<div class="col-md-1"></div>
 						<div class="col-md-1">
 						<button type="submit" class="btn btn-primary" onclick="return confirm('ยืนยัน');">ยืนยันการสั่งซื้อ</button></div>
 					</div>
@@ -45,6 +45,18 @@
 						</div>
 						<input type="hidden" class="form-control" name="m_id" value="<?php echo $m_id;?>">
 					</div>
+					<div class="form-group row">
+							<div class="col-md-2 control-label"> เพิ่มเติม </div>
+							<div class="col-md-3">
+								<div class="col-sm-13">
+									<select name="order_level" class="form-control" required>
+									<option value="">-เลือกข้อมูล-</option>
+									<option value="เพิ่มความหวาน">เพิ่มความหวาน</option>
+									<option value="เพิ่มความเข้ม">เพิ่มความเข้ม</option>
+									</select>
+								</div>
+							</div>
+						</div>
 					
 					<table  align="center" class="table table-hover">
 						<tr bgcolor="#EAEAEA">

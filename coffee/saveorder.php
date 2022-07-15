@@ -52,7 +52,8 @@ include('condb.php');
 	'$order_date_rev',
 	'$order_time_rev',
 	'$order_total',
-	'$order_date'
+	'$order_date',
+	'$order_level'
 	)";
 	
 	$query1	= mysqli_query($con, $sqlo);

@@ -14,10 +14,10 @@ include('../condb.php');
 	echo "<script type='text/javascript'>";
 	echo "window.location = 'food.php'; ";
 	echo "</script>";
-}
+	}
 
 
-	}else{ //if(isset()
+}else{ //if(isset()
 	Header("Location: ../logout.php");
 }
 ?>

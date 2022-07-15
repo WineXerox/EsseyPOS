@@ -39,10 +39,10 @@ $rowb = mysqli_fetch_array($resultb);
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_date"  value="<?php echo date('d/m/Y',strtotime($rowb['order_date_rev']));?>" readonly>
 						</div>
-						<div class="col-md-1"> เวลา </div>
+						<!-- <div class="col-md-1"> เวลา </div>
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_time" value="<?php echo $rowb['order_time_rev'];?>" readonly>
-						</div>
+						</div> -->
 					</div>
 					
 					<div class="form-group row">

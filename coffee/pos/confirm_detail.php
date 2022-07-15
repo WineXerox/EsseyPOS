@@ -29,7 +29,7 @@
 		<div class="col-md-3">
 			<div class="col-sm-13">
 				<select name="order_level" class="form-control" required>
-				<option value="t_id">-เลือกข้อมูล-</option>
+				<option value="">-เลือกข้อมูล-</option>
 				<option value="เพิ่มความหวาน">เพิ่มความหวาน</option>
 				<option value="เพิ่มความเข้ม">เพิ่มความเข้ม</option>
 				</select>

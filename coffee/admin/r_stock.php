@@ -67,7 +67,6 @@ echo ' <table id="example10" class="table table-bordered table-striped">';
       GROUP BY t.op_id
       ORDER BY t.op_id ASC";
       $result2 = mysqli_query($con, $query2);
-      //echo $query2;
       while($rowo = mysqli_fetch_array($result2)) {
       echo $rowo['op_name'];
       echo '<font color="red">';

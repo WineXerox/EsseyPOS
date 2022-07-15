@@ -1,4 +1,3 @@
-
 <?php
 $querys = "
 SELECT  p.p_id, p.p_name,p.p_price, SUM(o.d_qty) as qtotal, p.p_img, 

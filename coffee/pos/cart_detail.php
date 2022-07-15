@@ -1,9 +1,9 @@
 <!-- Start menu Area -->
 <style type="text/css">
 	input[type="number"], text {
-background-color : yellow;
-color: red;
-text-align: center;
+	background-color : yellow;
+	color: red;
+	text-align: center;
 }
 </style>
 <?php
@@ -73,12 +73,12 @@ unset($_SESSION['shopping_cart']);
 				while($row = mysqli_fetch_array($query))
 				{
 				$p_promotion = $row['p_promotion'];
-		if($p_promotion==1){
-				$disc =	$row['op_price'] * $row['p_discount']/100;
-			$mprice = $row['op_price']-$disc;
-		}else{
-			$mprice = $row['op_price'];
-		}
+				if($p_promotion==1){
+					$disc =	$row['op_price'] * $row['p_discount']/100;
+					$mprice = $row['op_price']-$disc;
+				}else{
+					$mprice = $row['op_price'];
+				}
 				$sum = $mprice * $p_qty;
 				$total += $sum;
 				echo "<tr>";
@@ -103,7 +103,7 @@ unset($_SESSION['shopping_cart']);
 					echo "</tr>";
 					}
 			
-				}
+			}
 				echo "<tr>";
 					echo "<td colspan='5' bgcolor='#e0d0d0' align='right'>ราคารวม</td>";
 					echo "<td align='right' bgcolor='#e0d0d0'>";
@@ -113,7 +113,7 @@ unset($_SESSION['shopping_cart']);
 					echo "</td>";
 					echo "<td align='left' bgcolor='#e0d0d0'></td>";
 				echo "</tr>";
-			}
+		}
 			?>
 			<tr>
 				<td></td>

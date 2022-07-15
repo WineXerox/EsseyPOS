@@ -15,7 +15,7 @@ include('../condb.php');
 	echo "<script type='text/javascript'>";
 	echo "window.location = 'product.php'; ";
 	echo "</script>";
-}
+	}
 
 }else{ //if(isset()
 	Header("Location: ../logout.php");

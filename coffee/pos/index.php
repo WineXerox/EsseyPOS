@@ -42,7 +42,6 @@
 											include('bill_detail.php');
 										}elseif ($act=='bill2') {
 											include('bill_detail2.php');
-											//include('order_cash.php');
 										}elseif ($act=='print') {
 											include('print_detail.php');
 										}elseif ($act=='wait') {
@@ -53,6 +52,8 @@
 											include('r_stock.php');
 										}elseif ($act=='stock2') {
 											include('r_stock2.php');
+										}elseif ($act=='r_d') {
+											include('r_d.php');
 										}elseif ($act=='r_d2') {
 											include('r_d2.php');
 										}elseif ($act=='r_d3') {

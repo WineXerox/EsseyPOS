@@ -32,7 +32,7 @@ $rowb = mysqli_fetch_array($resultb);
 						<div class="col-md-1">
 						<button onclick="window.print();"  class="btn btn-primary">พิมพ์ใบสั่งซื้อ</button></div>
 					</div>
-					<div class="form-group row">
+					<!-- <div class="form-group row">
 						<div class="col-md-2 control-label"> ว/ด/ป ที่มารับสินค้า </div>
 						<div class="col-md-3">
 							<input type="text" class="form-control" name="o_date"  value="<?php echo date('d/m/Y',strtotime($rowb['order_date_rev']));?>" readonly>
@@ -42,7 +42,7 @@ $rowb = mysqli_fetch_array($resultb);
 							<input type="text" class="form-control" name="o_time" value="<?php echo $rowb['order_time_rev'];?>" readonly>
 						</div>
 						<div class="col-md-1"> นาฬิกา </div>
-					</div>
+					</div> -->
 					
 					<div class="form-group row">
 						<div class="col-md-2 control-label"> ผู้สั่งซื้อ </div>
